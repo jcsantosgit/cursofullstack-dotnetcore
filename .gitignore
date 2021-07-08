@@ -1,0 +1,53 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dotnet files
+fullstackdotnet.service/obj
+fullstackdotnet.service/bin
+fullstackdotnet.repository/obj
+fullstackdotnet.repository/bin
+fullstackdotnet.domain/obj
+fullstackdotnet.domain/bin
+
+# compiled output
+fullstackdotnet-app/dist
+fullstackdotnet-app/tmp
+fullstackdotnet-app/out-tsc
+# Only exists if Bazel was run
+fullstackdotnet-app/bazel-out
+
+# dependencies
+fullstackdotnet-app/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+
+# IDEs and editors
+fullstackdotnet-app/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+fullstackdotnet-app/.sass-cache
+fullstackdotnet-app/connect.lock
+fullstackdotnet-app/coverage
+fullstackdotnet-app/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
