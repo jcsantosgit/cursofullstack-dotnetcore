@@ -49,7 +49,9 @@ namespace fullstackdotnet.service.Controllers
         {
             try
             {
-                var entity = model.GetEntityInstance();
+                var entity = _dbContext.Eventos.Where(e=>e.Id == model.Id).FirstOrDefault();
+                entity.Email = model.Email;
+                
                 _dbContext.Eventos.Add(entity);
                 return Ok("Success");
             }
