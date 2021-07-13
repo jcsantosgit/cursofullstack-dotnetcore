@@ -2,3 +2,18 @@ Exception: Net Core 3.0 possible object cycle was detected which is not supporte
 - Problema que ocorre quando as entidades no Entity Framework tem atributos que fazem link ciclico
 - por exemplo um Evento contém varios Lotes e, um Lote contem um Evento
 Link da soluçãohttps://stackoverflow.com/questions/59199593/net-core-3-0-possible-object-cycle-was-detected-which-is-not-supported
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Vagrantfile Para Postgres
+https://www.youtube.com/watch?v=PbdFYZgh6K4
+https://github.com/dggodoi/aprendendo-java-backend/blob/master/src/main/resources/Vagrantfile
+
+Tutorial de Instalação no OpenSuse
+https://www.howtoforge.com/tutorial/how-to-install-postgresql-and-phppgadmin-on-opensuse-leap-42.1/
+
+Tutorial de Instalação no Ubuntu
+https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart-pt
+
+Documentação Postgres Sobre Vagrant
+https://wiki.postgresql.org/wiki/PostgreSQL_For_Development_With_Vagrant
