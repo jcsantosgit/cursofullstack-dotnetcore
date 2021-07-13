@@ -8,7 +8,7 @@ namespace fullstackdotnet.service.Models
     {
         public int Id { get; set; }
         public string Local { get; set; }
-        public DateTime DataEvento { get; set; }
+        public DateTime? DataEvento { get; set; }
         public string Tema { get; set; }
         public int QtdPublico { get; set; }
         public string ImageUrl { get; set; }
@@ -17,6 +17,8 @@ namespace fullstackdotnet.service.Models
         public List<LoteDTO> Lotes { get; set; }
         public List<RedeSocialDTO> RedesSociais { get; set; }
         public List<PalestranteEventoDTO> PalestrantesEventos { get; set; }
+
+        public bool IncludePalestrantes { get; set; }
 
         public Evento GetEntityInstance()
         {
@@ -36,7 +38,7 @@ namespace fullstackdotnet.service.Models
                 Evento entity = new Evento();
                 entity.Id = model.Id;
                 entity.Local = model.Local;
-                entity.DataEvento = model.DataEvento;
+                entity.DataEvento = model.DataEvento.Value;
                 entity.Tema = model.Tema;
                 entity.QtdPublico = model.QtdPublico;
                 entity.ImageUrl = model.ImageUrl;

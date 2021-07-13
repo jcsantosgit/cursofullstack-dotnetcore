@@ -1,59 +1,94 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
+using fullstackdotnet.domain;
 using fullstackdotnet.repository;
 using fullstackdotnet.service.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace fullstackdotnet.service.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class EventoController : ControllerBase
     {
-        private FullstackDataContext _dbContext;
+        private IFullstackRepository _repository;
 
-        public EventoController(FullstackDataContext dbContext)
+        public EventoController(IFullstackRepository repository)
         {
-            _dbContext = dbContext;    
+            _repository = repository;
         }
 
         [HttpGet]
-        public IActionResult List()
+        public async Task<IActionResult> List(bool includePalestrantes)
         {
             try
             {
-                var query = _dbContext.Eventos.ToList();
+                var query = await _repository.GetAllEventoAsync(includePalestrantes);
                 return Ok(query);
             }
             catch (Exception ex)
             {
-                throw ex;
+                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
+        [HttpGet("get-by-tema/{tema}/{incluirPalestrante}")]
+        public async Task<IActionResult> GetByTema(string tema, bool incluirPalestrante)
+        {
+                var query = await _repository.GetAllEventoByTemaAsync(tema, incluirPalestrante);
+                return Ok(query);
+        }
+
+        [HttpGet("{id}/{incluirPalestrante}")]
+        public async Task<IActionResult> GetById(int id, bool incluirPalestrante)
+        {
+                var query = await _repository.GetEventoByIdAsync(id, incluirPalestrante);
+                return Ok(query);            
+        }
+
         [HttpPost]
-        public IActionResult Create(EventoDTO model)
+        public async Task<IActionResult> Create(EventoDTO model)
         {
             try
             {
                 var entity = model.GetEntityInstance();
-                _dbContext.Eventos.Add(entity);                
-                return Ok("Success");
+                _repository.Add<Evento>(entity);
+
+                if(await _repository.SaveChangesAsync())
+                {
+                    model.Id = entity.Id;
+                    return Created($"api/evento/{entity.Id}/{false}", model);
+                }
+
+                return BadRequest("Recurso não encontrado");
             }
             catch (Exception ex)
             {
-                throw ex;
+                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
         [HttpPut]
-        public IActionResult Update(EventoDTO model)
+        public async Task<IActionResult> Update(int id, EventoDTO model)
         {
             try
             {
-                var entity = _dbContext.Eventos.Where(e=>e.Id == model.Id).FirstOrDefault();
-                entity.Email = model.Email;
+                var tmp = _repository.GetEventoByIdAsync(id);
+                if(tmp == null) return NotFound("ID não encontrado");
+
+                var entity = model.GetEntityInstance();
+                entity.Id = tmp.Id;
+                _repository.Update<Evento>(entity);
+
+                if(await _repository.SaveChangesAsync())
+                {
+                    model.Id = entity.Id;
+                    return Created($"api/evento/{entity.Id}/{false}", model);
+                }
                 
-                _dbContext.Eventos.Add(entity);
-                return Ok("Success");
+                return BadRequest("Recurso não encontrado");
             }
             catch (Exception ex)
             {
@@ -66,6 +101,9 @@ namespace fullstackdotnet.service.Controllers
         {
             try
             {
+                var entity = _repository.GetEventoByIdAsync(id);
+                if(entity == null) NotFound("ID não encontado");
+                _repository.Delete(entity);
                 return Ok("Success");
             }
             catch (Exception ex)

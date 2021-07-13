@@ -36,25 +36,7 @@ namespace fullstackdotnet.repository
         // -----------------------------------------------------
         // EVENTOS
         // -----------------------------------------------------
-        public async Task<Evento[]> GetAllEventoAsync(bool includePalestrantes = false)
-        {
-            IQueryable<Evento> query = _dbContext.Eventos
-            .Include(c=>c.Lotes)
-            .Include(c => c.RedesSociais);
-
-            if(includePalestrantes)
-            {
-                query = query
-                    .Include(pe => pe.PalestrantesEventos)
-                    .ThenInclude(p=>p.Palestrante);
-            }
-
-            query.OrderByDescending(e => e.DataEvento);
-
-            return await query.ToArrayAsync();
-        }
-
-        public async Task<Evento[]> GetAllEventoAsyncByTema(string tema, bool includePalestrantes = false)
+        public async Task<Evento[]> GetAllEventoByTemaAsync(string tema, bool includePalestrantes = false)
         {
             IQueryable<Evento> query = _dbContext.Eventos
             .Include(c=>c.Lotes)
@@ -73,7 +55,7 @@ namespace fullstackdotnet.repository
             return await query.ToArrayAsync();
         }
 
-        public async Task<Evento> GetEventoById(int id, bool includePalestrantes = false)
+        public async Task<Evento> GetEventoByIdAsync(int id, bool includePalestrantes = false)
         {
             IQueryable<Evento> query = _dbContext.Eventos
             .Include(c=>c.Lotes)
@@ -92,6 +74,24 @@ namespace fullstackdotnet.repository
             return await query.FirstOrDefaultAsync();
         }
 
+        public async Task<Evento[]> GetAllEventoAsync(bool includePalestrantes = false)
+        {
+            IQueryable<Evento> query = _dbContext.Eventos
+            .Include(c=>c.Lotes)
+            .Include(c => c.RedesSociais);
+
+            if(includePalestrantes)
+            {
+                query = query
+                    .Include(pe => pe.PalestrantesEventos)
+                    .ThenInclude(p=>p.Palestrante);
+            }
+
+            query.OrderByDescending(e => e.DataEvento);
+
+            return await query.ToArrayAsync();
+        }
+        
         // -----------------------------------------------------
         // PALESTRANTES
         // -----------------------------------------------------
@@ -112,7 +112,7 @@ namespace fullstackdotnet.repository
             return await query.ToArrayAsync();
         }
 
-        public async Task<Palestrante[]> GetAllEventoAsyncByNome(string nome, bool includeEventos = false)
+        public async Task<Palestrante[]> GetAllPalestranteByNomeAsync(string nome, bool includeEventos = false)
         {
             IQueryable<Palestrante> query = _dbContext.Palestrantes
                 .Include(p => p.RedesSociais);
@@ -129,7 +129,7 @@ namespace fullstackdotnet.repository
             return await query.ToArrayAsync();
         }
 
-        public async Task<Palestrante> GetPalestranteById(int id, bool includeEventos = false)
+        public async Task<Palestrante> GetPalestranteByIdAsync(int id, bool includeEventos = false)
         {
             IQueryable<Palestrante> query = _dbContext.Palestrantes
             .Include(c => c.RedesSociais);

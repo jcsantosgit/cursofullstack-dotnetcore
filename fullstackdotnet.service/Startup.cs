@@ -29,6 +29,7 @@ namespace fullstackdotnet.service
         {
             var strConn = Configuration.GetSection("ConnectionStrings:Default").Value;
             services.AddDbContext<FullstackDataContext>(options=>options.UseNpgsql(strConn, o => o.SetPostgresVersion(9,4)));
+            services.AddScoped<IFullstackRepository, FullstackRepository>();
             services.AddControllers();
         }
 

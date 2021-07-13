@@ -17,15 +17,15 @@ namespace fullstackdotnet.repository
         //------------------------------------
         // Eventos
         //------------------------------------
-        Task<Evento[]> GetAllEventoAsyncByTema(string tema, bool includePalestrantes = false);
+        Task<Evento[]> GetAllEventoByTemaAsync(string tema, bool includePalestrantes = false);
         Task<Evento[]> GetAllEventoAsync(bool includePalestrantes = false);
-        Task<Evento> GetEventoById(int id, bool includePalestrantes = false);   
+        Task<Evento> GetEventoByIdAsync(int id, bool includePalestrantes = false);   
 
         //------------------------------------
         // Palestrante
         //------------------------------------
-        Task<Palestrante[]> GetAllEventoAsyncByNome(string nome, bool includePalestrantes = false);
+        Task<Palestrante[]> GetAllPalestranteByNomeAsync(string nome, bool includePalestrantes = false);
         Task<Palestrante[]> GetAllPalestranteAsync(bool includeEventos = false);
-        Task<Palestrante> GetPalestranteById(int id, bool includeEventos = false);      
+        Task<Palestrante> GetPalestranteByIdAsync(int id, bool includeEventos = false);      
     }
 }

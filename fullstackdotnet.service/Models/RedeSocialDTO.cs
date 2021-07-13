@@ -23,13 +23,14 @@ namespace fullstackdotnet.service.Models
                 entity.Nome = model.Nome;
                 entity.Url = model.Url;
                 entity.EventoId = model .EventoId;
+
                 if(model.Evento != null)
                     entity.Evento = EventoDTO.ParseToEntity(model.Evento);
                 
                 entity.PalestranteId = model.PalestranteId;
                 
                 if(model.Palestrante != null)
-                entity.Palestrante = PalestranteDTO.ParseToEntity(model.Palestrante);
+                    entity.Palestrante = PalestranteDTO.ParseToEntity(model.Palestrante);
                 return entity;
             }
             catch (Exception ex)
@@ -41,7 +42,13 @@ namespace fullstackdotnet.service.Models
         {
             try
             {
-                return null;
+                List<RedeSocial> entities = new List<RedeSocial>();
+                foreach (var model in models)
+                {
+                    entities.Add(RedeSocialDTO.ParseToEntity(model));
+                }
+
+                return entities;
             }
             catch (Exception ex)
             {
