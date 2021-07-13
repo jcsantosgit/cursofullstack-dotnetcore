@@ -1,0 +1,4 @@
+Exception: Net Core 3.0 possible object cycle was detected which is not supported
+- Problema que ocorre quando as entidades no Entity Framework tem atributos que fazem link ciclico
+- por exemplo um Evento contém varios Lotes e, um Lote contem um Evento
+Link da soluçãohttps://stackoverflow.com/questions/59199593/net-core-3-0-possible-object-cycle-was-detected-which-is-not-supported
