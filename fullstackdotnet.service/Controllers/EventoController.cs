@@ -71,15 +71,14 @@ namespace fullstackdotnet.service.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(int id, EventoDTO model)
+        public async Task<IActionResult> Update(EventoDTO model)
         {
             try
             {
-                var tmp = _repository.GetEventoByIdAsync(id);
-                if(tmp == null) return NotFound("ID não encontrado");
+                // var tmp = _repository.GetEventoByIdAsync(model.Id, false);
+                // if(tmp == null) return NotFound("ID não encontrado");
 
                 var entity = model.GetEntityInstance();
-                entity.Id = tmp.Id;
                 _repository.Update<Evento>(entity);
 
                 if(await _repository.SaveChangesAsync())
@@ -96,15 +95,19 @@ namespace fullstackdotnet.service.Controllers
             }
         }
 
-        [HttpDelete]
-        public IActionResult Delete(int id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                var entity = _repository.GetEventoByIdAsync(id);
-                if(entity == null) NotFound("ID não encontado");
-                _repository.Delete(entity);
-                return Ok("Success");
+                // var entity = _repository.GetEventoByIdAsync(id);
+                // if(entity == null) NotFound("ID não encontado");
+                _repository.Delete<Evento>(new Evento { Id = id});
+                
+                if(await _repository.SaveChangesAsync())
+                    return Ok("Success");
+
+                return BadRequest("Não foi possível excluir o Evento");
             }
             catch (Exception ex)
             {

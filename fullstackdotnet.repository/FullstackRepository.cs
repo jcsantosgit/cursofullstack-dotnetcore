@@ -12,6 +12,10 @@ namespace fullstackdotnet.repository
         public FullstackRepository(FullstackDataContext dbContext)
         {
             _dbContext = dbContext;
+            _dbContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            
+            _dbContext.Database.OpenConnection();
+            _dbContext.Database.CloseConnectionAsync();
         }
 
         // -----------------------------------------------------
@@ -20,7 +24,7 @@ namespace fullstackdotnet.repository
 
         public void Add<T>(T entity) where T : class
         {
-            _dbContext.Add(entity);
+            _dbContext.AddAsync(entity);
         }
 
         public void Update<T>(T entity) where T : class
@@ -49,7 +53,8 @@ namespace fullstackdotnet.repository
                     .ThenInclude(p=>p.Palestrante);
             }
 
-            query.OrderByDescending(e => e.DataEvento)
+            query
+                .OrderByDescending(e => e.DataEvento)
                 .Where(e => e.Tema.ToLower().Contains(tema.ToLower()));
 
             return await query.ToArrayAsync();
@@ -58,6 +63,7 @@ namespace fullstackdotnet.repository
         public async Task<Evento> GetEventoByIdAsync(int id, bool includePalestrantes = false)
         {
             IQueryable<Evento> query = _dbContext.Eventos
+            .Where(e => e.Id == id)
             .Include(c=>c.Lotes)
             .Include(c => c.RedesSociais);
 
@@ -68,10 +74,7 @@ namespace fullstackdotnet.repository
                     .ThenInclude(p=>p.Palestrante);
             }
 
-            query.OrderByDescending(e => e.DataEvento)
-                .Where(e => e.Id == id);
-
-            return await query.FirstOrDefaultAsync();
+            return await query.AsNoTracking().FirstOrDefaultAsync();
         }
 
         public async Task<Evento[]> GetAllEventoAsync(bool includePalestrantes = false)
@@ -87,7 +90,8 @@ namespace fullstackdotnet.repository
                     .ThenInclude(p=>p.Palestrante);
             }
 
-            query.OrderByDescending(e => e.DataEvento);
+            query
+                .OrderByDescending(e => e.DataEvento);
 
             return await query.ToArrayAsync();
         }
@@ -152,7 +156,7 @@ namespace fullstackdotnet.repository
         // -----------------------------------------------------
         public async Task<bool> SaveChangesAsync()
         {
-            return (await _dbContext.SaveChangesAsync() > 0);
+            return await _dbContext.SaveChangesAsync() > 0;
         }        
     }
 }

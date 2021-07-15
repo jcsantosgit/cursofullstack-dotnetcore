@@ -28,8 +28,8 @@ namespace fullstackdotnet.service
         public void ConfigureServices(IServiceCollection services)
         {
             var strConn = Configuration.GetSection("ConnectionStrings:Default").Value;
-            services.AddDbContext<FullstackDataContext>(options=>options.UseNpgsql(strConn, o => o.SetPostgresVersion(9,4)));
             services.AddScoped<IFullstackRepository, FullstackRepository>();
+            services.AddDbContext<FullstackDataContext>(options=>options.UseNpgsql(strConn, o => o.SetPostgresVersion(9,4)));
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
