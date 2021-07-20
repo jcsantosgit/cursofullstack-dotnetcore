@@ -28,12 +28,13 @@ namespace fullstackdotnet.service
         public void ConfigureServices(IServiceCollection services)
         {
             var strConn = Configuration.GetSection("ConnectionStrings:Default").Value;
-            services.AddScoped<IFullstackRepository, FullstackRepository>();
             services.AddDbContext<FullstackDataContext>(options=>options.UseNpgsql(strConn, o => o.SetPostgresVersion(9,4)));
+            services.AddScoped<IFullstackRepository, FullstackRepository>();
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );            
+            services.AddCors();
             services.AddControllers();
         }
 
@@ -46,6 +47,12 @@ namespace fullstackdotnet.service
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors(c => 
+                c.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
 
             app.UseRouting();
 

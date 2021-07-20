@@ -136,6 +136,7 @@ namespace fullstackdotnet.repository
         public async Task<Palestrante> GetPalestranteByIdAsync(int id, bool includeEventos = false)
         {
             IQueryable<Palestrante> query = _dbContext.Palestrantes
+            .Where(e => e.Id == id)
             .Include(c => c.RedesSociais);
 
             if(includeEventos)
@@ -145,8 +146,7 @@ namespace fullstackdotnet.repository
                     .ThenInclude(e=>e.Evento);
             }
 
-            query.OrderBy(p => p.Nome)
-                .Where(e => e.Id == id);
+            query.OrderBy(p => p.Nome);
 
             return await query.FirstOrDefaultAsync();
         }

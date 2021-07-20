@@ -10,7 +10,7 @@ using fullstackdotnet.repository;
 namespace fullstackdotnet.repository.Migrations
 {
     [DbContext(typeof(FullstackDataContext))]
-    [Migration("20210709022150_init")]
+    [Migration("20210718143242_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,8 +103,8 @@ namespace fullstackdotnet.repository.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
-                    b.Property<int>("MiniCurriculo")
-                        .HasColumnType("integer");
+                    b.Property<string>("MiniCurriculo")
+                        .HasColumnType("text");
 
                     b.Property<string>("Nome")
                         .HasColumnType("text");

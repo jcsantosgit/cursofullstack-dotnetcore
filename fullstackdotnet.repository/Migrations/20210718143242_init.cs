@@ -34,7 +34,7 @@ namespace fullstackdotnet.repository.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Nome = table.Column<string>(nullable: true),
-                    MiniCurriculo = table.Column<int>(nullable: false),
+                    MiniCurriculo = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     Telefone = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true)

@@ -101,8 +101,8 @@ namespace fullstackdotnet.repository.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
-                    b.Property<int>("MiniCurriculo")
-                        .HasColumnType("integer");
+                    b.Property<string>("MiniCurriculo")
+                        .HasColumnType("text");
 
                     b.Property<string>("Nome")
                         .HasColumnType("text");

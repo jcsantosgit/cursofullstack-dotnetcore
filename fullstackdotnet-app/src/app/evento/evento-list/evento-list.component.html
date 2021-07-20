@@ -1,0 +1,32 @@
+<h3>Lista de Eventos</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Foto</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Tema</th>
+      <th>Público</th>
+      <th>Telefone</th>
+      <th>E-mail</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of eventos">
+      <td><img src="{{e.imageUrl}}" alt="" width="70" height="70"></td>
+      <td>{{e.local}}</td>
+      <td>{{e.dataEvento.toLocaleString("pt-BR").substring(0, 10)}}</td>
+      <td>{{e.tema}}</td>
+      <td>{{e.qtdPublico}}</td>
+      <td>{{e.telefone}}</td>
+      <td>{{e.email}}</td>
+      <td>{{e.local}}</td>
+      <td>
+        <a href="#">Edit</a>
+        <a href="#">Delete</a>
+        <a href="#">View</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

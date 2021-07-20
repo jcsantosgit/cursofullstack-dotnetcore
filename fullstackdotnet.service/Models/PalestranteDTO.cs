@@ -8,14 +8,16 @@ namespace fullstackdotnet.service.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int MiniCurriculo { get; set; }
+        public string MiniCurriculo { get; set; }
         public string ImageUrl { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
         public List<RedeSocialDTO> RedesSociais { get; set; }
         public List<PalestranteEventoDTO> PalestrantesEventos { get; set; }
 
-        internal static Palestrante ParseToEntity(PalestranteDTO model)
+        public bool IncludeEventos { get; set; }
+
+        public static Palestrante ParseToEntity(PalestranteDTO model)
         {
             try
             {
@@ -26,6 +28,7 @@ namespace fullstackdotnet.service.Models
                 entity.ImageUrl = model.ImageUrl;
                 entity.Telefone = model.Telefone;
                 entity.Email = model.Email;
+                
                 if(model.RedesSociais != null)
                     entity.RedesSociais = RedeSocialDTO.ParseToEntities(model.RedesSociais);
                 

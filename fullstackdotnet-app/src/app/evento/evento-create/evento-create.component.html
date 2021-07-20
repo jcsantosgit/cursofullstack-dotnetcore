@@ -1,0 +1,32 @@
+<form action="/action_page.php">
+  <div class="container">
+    <h3>Cadastro de Evento</h3>
+    <p>Faça o cadastro de um evento preenchendo os campos abaixo</p>
+    <hr>
+
+    <label for="local"><b>Local</b></label>
+    <input type="text" placeholder="Ex.: Avenida Celso Garcia" [(ngModel)]="evento.local" name="local">
+
+    <label for="dataVento"><b>Data do Evento</b></label>
+    <input type="date" placeholder="dd/mm/aaaa" name="dataEvento" [(ngModel)]="evento.dataEvento" name="dataEvento" >
+
+    <label for="tema"><b>Tema</b></label>
+    <input type="text" placeholder="Fullstack para Desenvolvedores Java" [(ngModel)]="evento.tema" name="tema" >
+
+    <label for="qtdPublico"><b>Publico Máximo</b></label>
+    <input type="number" [(ngModel)]="evento.qtdPublico" name="qtdPublico" >
+
+    <label for="imageUrl"><b>URL da Imagem</b></label>
+    <input type="text" [(ngModel)]="evento.imageUrl" name="imageUrl">
+
+    <label for="telefone"><b>Telefone</b></label>
+    <input type="number" name="telefone" [(ngModel)]="evento.telefone" name="telefone" >
+
+    <label for="email"><b>E-mail</b></label>
+    <input type="number" name="email" [(ngModel)]="evento.email" name="email" >
+
+    <hr>
+
+    <button class="registerbtn" (click)="criarEvento()">Salvar</button>
+  </div>
+</form>
