@@ -1,2 +1,2 @@
-# cursofullstack-dotnetcore
-Projeto do curso Fullstack com ASP.NET Core e Angular na udemy
+# Curso Fullstack com Angular e .NET Core
+Projeto feito durante o curso usando as tecnologias: Angular, .NET Core, EntityFrameworkCore, Identity
