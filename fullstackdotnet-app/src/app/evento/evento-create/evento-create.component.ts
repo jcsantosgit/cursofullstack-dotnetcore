@@ -31,8 +31,7 @@ export class EventoCreateComponent implements OnInit {
   }
 
   criarEvento() {
-    //this.service.create(evento);
-    console.log(this.evento);
+    this.service.create(this.evento);
   }
 
 }

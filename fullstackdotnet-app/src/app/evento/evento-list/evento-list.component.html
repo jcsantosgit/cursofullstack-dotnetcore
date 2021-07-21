@@ -1,32 +1,27 @@
-<h3>Lista de Eventos</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Foto</th>
-      <th>Local</th>
-      <th>Data</th>
-      <th>Tema</th>
-      <th>Público</th>
-      <th>Telefone</th>
-      <th>E-mail</th>
-      <th>Opções</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let e of eventos">
-      <td><img src="{{e.imageUrl}}" alt="" width="70" height="70"></td>
-      <td>{{e.local}}</td>
-      <td>{{e.dataEvento.toLocaleString("pt-BR").substring(0, 10)}}</td>
-      <td>{{e.tema}}</td>
-      <td>{{e.qtdPublico}}</td>
-      <td>{{e.telefone}}</td>
-      <td>{{e.email}}</td>
-      <td>{{e.local}}</td>
-      <td>
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
-        <a href="#">View</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <h3>Lista de Eventos</h3>
+  <p>Abaixo estão todos os eventos cadastrados no sistema</p>
+  <input type="text" class="search" placeholder="pesquisar">
+  <div class="btn-novo">
+    <a routerLink="EventoCreate" class="btn btn-success">Novo</a>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3" *ngFor="let e of eventos">
+      <div class="card">
+        <img src="{{e.imageUrl}}" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title">{{e.tema}}</h5>
+          <div class="card-context">
+            Local: {{e.local}} <br>
+            Data: {{e.dataEvento}} <br>
+            Fone: {{e.telefone}} <br>
+            E-mail: {{e.email}} <br> <br>
+            <a class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
+            <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+            <a href="#" class="btn btn-info"><i class="fa fa-eye"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+.search {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: thin solid #ccc;
+}
+
+.card-context {
+  font-size: 14px;
+}
+
+.btn-novo {
+  text-align: right;
+}

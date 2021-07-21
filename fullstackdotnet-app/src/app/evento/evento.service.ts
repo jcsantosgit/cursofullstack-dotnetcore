@@ -26,9 +26,10 @@ export class EventoService {
 
   create(evento: Evento) : void {
     try {
-      this.http.post(this.baseUrl, evento);
+      this.http.post(this.baseUrl, evento).subscribe();
     } catch (error) {
       console.log(error);
     }
   }
+
 }

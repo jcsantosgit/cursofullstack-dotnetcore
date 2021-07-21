@@ -1,32 +1,43 @@
-<form action="/action_page.php">
-  <div class="container">
-    <h3>Cadastro de Evento</h3>
-    <p>Faça o cadastro de um evento preenchendo os campos abaixo</p>
-    <hr>
 
-    <label for="local"><b>Local</b></label>
-    <input type="text" placeholder="Ex.: Avenida Celso Garcia" [(ngModel)]="evento.local" name="local">
+      <h3>Cadastro de Evento</h3>
+      <p>Faça o cadastro de um evento preenchendo os campos abaixo</p>
+      <hr>
 
-    <label for="dataVento"><b>Data do Evento</b></label>
-    <input type="date" placeholder="dd/mm/aaaa" name="dataEvento" [(ngModel)]="evento.dataEvento" name="dataEvento" >
+      <div class="form-group">
+        <label for="local">Local</label>
+        <input type="text" placeholder="Ex.: Avenida Celso Garcia" class="form-control" [(ngModel)]="evento.local" name="local">
+      </div>
 
-    <label for="tema"><b>Tema</b></label>
-    <input type="text" placeholder="Fullstack para Desenvolvedores Java" [(ngModel)]="evento.tema" name="tema" >
+      <div class="form-group">
+        <label for="dataVento">Data do Evento</label>
+        <input type="text" placeholder="dd/mm/aaaa" class="form-control" name="dataEvento" [(ngModel)]="evento.dataEvento" name="dataEvento" >
+      </div>
 
-    <label for="qtdPublico"><b>Publico Máximo</b></label>
-    <input type="number" [(ngModel)]="evento.qtdPublico" name="qtdPublico" >
+      <div class="form-group">
+        <label for="tema">Tema</label>
+        <input type="text" placeholder="Fullstack para Desenvolvedores Java" class="form-control" [(ngModel)]="evento.tema" name="tema" >
+      </div>
 
-    <label for="imageUrl"><b>URL da Imagem</b></label>
-    <input type="text" [(ngModel)]="evento.imageUrl" name="imageUrl">
+      <div class="form-group">
+        <label for="qtdPublico">Publico Máximo</label>
+        <input type="number" [(ngModel)]="evento.qtdPublico" class="form-control" name="qtdPublico" >
+      </div>
 
-    <label for="telefone"><b>Telefone</b></label>
-    <input type="number" name="telefone" [(ngModel)]="evento.telefone" name="telefone" >
+      <div class="form-group">
+        <label for="imageUrl">URL da Imagem</label>
+        <input type="text" class="form-control" [(ngModel)]="evento.imageUrl" name="imageUrl">
+      </div>
 
-    <label for="email"><b>E-mail</b></label>
-    <input type="number" name="email" [(ngModel)]="evento.email" name="email" >
+      <div class="form-group">
+        <label for="telefone"><b>Telefone</b></label>
+        <input type="number" name="telefone" class="form-control" [(ngModel)]="evento.telefone" name="telefone" >
+      </div>
 
-    <hr>
+      <div class="form-group">
+        <label for="email"><b>E-mail</b></label>
+        <input type="email" name="email" class="form-control" [(ngModel)]="evento.email" name="email" >
+      </div>
 
-    <button class="registerbtn" (click)="criarEvento()">Salvar</button>
-  </div>
-</form>
+      <hr>
+
+      <button class="btn btn-success" (click)="criarEvento()">Salvar</button>
