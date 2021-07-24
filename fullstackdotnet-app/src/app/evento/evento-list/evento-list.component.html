@@ -3,7 +3,7 @@
   <p>Abaixo estão todos os eventos cadastrados no sistema</p>
   <input type="text" class="search" placeholder="pesquisar">
   <div class="btn-novo">
-    <a routerLink="EventoCreate" class="btn btn-success">Novo</a>
+    <a routerLink="/evento-create" class="btn btn-success">Novo</a>
   </div>
   <hr>
   <div class="row">
@@ -17,9 +17,11 @@
             Data: {{e.dataEvento}} <br>
             Fone: {{e.telefone}} <br>
             E-mail: {{e.email}} <br> <br>
-            <a class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
-            <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-            <a href="#" class="btn btn-info"><i class="fa fa-eye"></i></a>
+            <div class="btn-group">
+              <a [routerLink]="['/evento-edit', e.id]" class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
+              <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+              <a href="#" class="btn btn-info"><i class="fa fa-eye"></i></a>
+            </div>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './status-code/app-notfound-component';
 import { EventoCreateComponent } from './evento/evento-create/evento-create.component';
 import { PainelComponent } from './painel/painel/painel.component';
 import { EventoListComponent } from './evento/evento-list/evento-list.component';
@@ -6,8 +7,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: PainelComponent},
-  { path: 'Eventos', component: EventoListComponent },
-  { path: 'EventoCreate', component: EventoCreateComponent}
+  { path: 'eventos', component: EventoListComponent },
+  { path: 'evento-create', component: EventoCreateComponent},
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
