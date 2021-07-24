@@ -1,3 +1,14 @@
 .content {
-  margin-top: 20px;
+  margin-top: 15px;
+}
+
+.sidemenu {
+  margin: 0;
+  padding: 0;
+  background: #85D1CB;
+  height: 2000px;
+}
+
+.sidemenu a {
+  color: white;
 }

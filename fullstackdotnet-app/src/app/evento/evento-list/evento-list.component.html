@@ -3,11 +3,11 @@
   <p>Abaixo estão todos os eventos cadastrados no sistema</p>
   <input type="text" class="search" placeholder="pesquisar">
   <div class="btn-novo">
-    <a routerLink="/evento-create" class="btn btn-success">Novo</a>
+    <a routerLink="/evento-create" class="btn btn-info">Novo</a>
   </div>
   <hr>
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3" *ngFor="let e of eventos">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3" *ngFor="let e of eventos">
       <div class="card">
         <img src="{{e.imageUrl}}" class="card-img-top" />
         <div class="card-body">
