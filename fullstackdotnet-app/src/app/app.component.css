@@ -2,6 +2,16 @@
   margin-top: 15px;
 }
 
+.sidemenu ul {
+  width: 100%;
+}
+
+.sidemenu nav{
+  padding-top: 15px;
+  padding: 0;
+  margin: 0;
+}
+
 .sidemenu {
   margin: 0;
   padding: 0;
@@ -11,4 +21,10 @@
 
 .sidemenu a {
   color: white;
+  font-size: 1.3em;
+  padding: 7px 15px;
+}
+
+.sidemenu a:hover {
+background: rgba(0, 0, 0, 0.3);
 }

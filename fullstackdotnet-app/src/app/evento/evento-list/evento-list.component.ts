@@ -17,7 +17,6 @@ export class EventoListComponent implements OnInit {
     this.service.listar().subscribe(
       eventos => {
         this.eventos = eventos
-        console.log(eventos)
       }
     )
   }

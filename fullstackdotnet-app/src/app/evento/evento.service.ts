@@ -15,6 +15,11 @@ export class EventoService {
 
   }
 
+  searchById(id: number) : Observable<Evento> {
+    let url = this.baseUrl + "/" + id + "/false";
+    return this.http.get<Evento>(url);
+  }
+
   listar(): Observable<Evento[]> {
     try {
       return this.http.get<Evento[]>(this.baseUrl);

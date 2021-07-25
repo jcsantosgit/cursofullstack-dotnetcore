@@ -2,6 +2,8 @@ import { EventoService } from './../evento.service';
 import { Component, OnInit } from '@angular/core';
 import { Evento } from 'src/app/models/Evento';
 
+import { ImageCroppedEvent } from 'ngx-image-cropper';
+
 @Component({
   selector: 'app-evento-create',
   templateUrl: './evento-create.component.html',
@@ -34,4 +36,9 @@ export class EventoCreateComponent implements OnInit {
     this.service.create(this.evento);
   }
 
+  onChange(event: any) {
+    if(event.target.files && event.target.files[0]) {
+      const foto = event.target.files[0];
+    }
+  }
 }
