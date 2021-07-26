@@ -1,3 +1,4 @@
+import { Observable, Subscriber } from 'rxjs';
 import { EventoService } from './../evento.service';
 import { Component, OnInit } from '@angular/core';
 import { Evento } from 'src/app/models/Evento';
@@ -11,6 +12,8 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 })
 export class EventoCreateComponent implements OnInit {
 
+  foto = ""
+
   evento: Evento = {
     local:"",
     dataEvento: new Date(),
@@ -23,7 +26,7 @@ export class EventoCreateComponent implements OnInit {
     redesSociais: [],
     palestrantesEventos : [],
     includePalestrantes: false
-  }
+  };
 
   constructor(private service: EventoService) {
    }
@@ -37,8 +40,34 @@ export class EventoCreateComponent implements OnInit {
   }
 
   onChange(event: any) {
+
     if(event.target.files && event.target.files[0]) {
-      const foto = event.target.files[0];
+      const file = event.target.files[0];
+      this.convertToBase64(file);
+    }
+  }
+
+  convertToBase64(file: File){
+    const observable = new Observable((subscriber: Subscriber<any>)=>{
+      this.readFile(file, subscriber);
+    });
+    observable.subscribe((f)=>{
+      this.foto = f;
+    })
+  }
+
+  readFile(file: File, subscriber: Subscriber<any>){
+    const filereader = new FileReader();
+    filereader.readAsDataURL(file);
+
+    filereader.onload=()=>{
+      subscriber.next(filereader.result);
+      subscriber.complete();
+    }
+
+    filereader.onerror=(error)=>{
+      subscriber.error(error);
+      subscriber.complete();
     }
   }
 }

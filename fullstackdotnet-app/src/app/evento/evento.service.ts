@@ -9,20 +9,23 @@ import { Observable } from 'rxjs';
 })
 export class EventoService {
 
-  baseUrl = "http://localhost:5000/api/evento";
+  url = "http://localhost:5000"
+  api = "api/evento";
+
+  endpoint = `${this.url}/${this.api}`;
 
   constructor(private http: HttpClient) {
 
   }
 
   searchById(id: number) : Observable<Evento> {
-    let url = this.baseUrl + "/" + id + "/false";
-    return this.http.get<Evento>(url);
+    const path = `${this.endpoint}/${id}/false`;
+    return this.http.get<Evento>(path);
   }
 
   listar(): Observable<Evento[]> {
     try {
-      return this.http.get<Evento[]>(this.baseUrl);
+      return this.http.get<Evento[]>(this.endpoint);
     } catch (error) {
       console.log(error);
       throw error;
@@ -31,10 +34,17 @@ export class EventoService {
 
   create(evento: Evento) : void {
     try {
-      this.http.post(this.baseUrl, evento).subscribe();
+      this.http.post(this.endpoint, evento).subscribe();
     } catch (error) {
       console.log(error);
     }
   }
 
+  upload(file: FormData) : any {
+    console.log(file);
+    const path = `${this.url}/api/FileManager/upload`;
+    console.log(path);
+    const res = this.http.post(path, file).subscribe();
+    return res;
+  }
 }
