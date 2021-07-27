@@ -26,9 +26,6 @@ namespace fullstackdotnet.repository.Mapping
             .IsRequired()
             .HasColumnType("varchar(11)");
 
-            builder.Property(p => p.ImageUrl)
-            .HasColumnType("varchar(200)");
-
             builder.ToTable("Eventos");
         }
     }

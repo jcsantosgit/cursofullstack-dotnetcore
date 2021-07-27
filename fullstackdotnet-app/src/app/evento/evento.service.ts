@@ -40,6 +40,15 @@ export class EventoService {
     }
   }
 
+  update(evento: Evento) : void {
+    try {
+      this.http.put(this.endpoint, evento).subscribe();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   upload(file: FormData) : any {
     console.log(file);
     const path = `${this.url}/api/FileManager/upload`;

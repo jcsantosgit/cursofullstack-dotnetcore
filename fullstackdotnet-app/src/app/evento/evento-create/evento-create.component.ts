@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Evento } from 'src/app/models/Evento';
 
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-evento-create',
@@ -28,7 +29,8 @@ export class EventoCreateComponent implements OnInit {
     includePalestrantes: false
   };
 
-  constructor(private service: EventoService) {
+  constructor(private service: EventoService, private router: Router) {
+    this.foto = "../../assets/images/indisponivel.jpg";
    }
 
   ngOnInit(): void {
@@ -36,7 +38,14 @@ export class EventoCreateComponent implements OnInit {
   }
 
   criarEvento() {
+    this.evento.imageUrl = this.foto;
     this.service.create(this.evento);
+    this.cancel();
+  }
+
+  cancel() : void {
+    this.foto = "../../assets/images/indisponivel.jpg";
+    this.router.navigate(['/eventos'])
   }
 
   onChange(event: any) {
