@@ -1,4 +1,5 @@
-# Projeto Fullstack com Angular e .Net Core ([Show in English](https://github.com/jcsantosgit/cursofullstack-dotnetcore/README.md))
+# Projeto Fullstack com Angular e .Net Core 
+- ([Show in English](https://github.com/jcsantosgit/cursofullstack-dotnetcore))
 Este foi um projeto feito durante o curso **Seja Full-Stack com Asp.NET Core, Angular + EF Core**, porem com adição de alguns recursos não ministrados durante o curso, mas que fazem parte do meu conhecimento e da minha experiência como desenvolvedor a mais de 9 anos. Abaixo estão listadas todas as tecnologias utilizadas para o desenvolvimento do projeto e também uma breve explicação:
 
  - Vagrant: ultilizado para automatizar a criação do banco de dados
