@@ -2,8 +2,7 @@ import { Evento } from './../models/Evento';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-
+import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +13,7 @@ export class EventoService {
 
   endpoint = `${this.url}/${this.api}`;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private toastr: ToastrService) {
 
   }
 
@@ -34,7 +33,9 @@ export class EventoService {
 
   create(evento: Evento) : void {
     try {
-      this.http.post(this.endpoint, evento).subscribe();
+      this.http.post(this.endpoint, evento).subscribe(
+        () => {this.toastr.success('Evento cadastrado!')}
+      );
     } catch (error) {
       console.log(error);
     }
@@ -42,10 +43,17 @@ export class EventoService {
 
   update(evento: Evento) : void {
     try {
-      this.http.put(this.endpoint, evento).subscribe();
+      this.http.put(this.endpoint, evento).subscribe(
+        () => {this.toastr.success('Evento alterado!')}
+      );
     } catch (error) {
       console.log(error);
     }
+  }
+
+  delete(id: number) : void {
+    const path = `${this.endpoint}/${id}`;
+    this.http.delete(path).subscribe();
   }
 
 
