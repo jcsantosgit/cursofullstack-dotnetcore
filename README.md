@@ -1,16 +1,16 @@
-# Projeto Fullstack com Angular e .Net Core
-Este foi um projeto feito durante o curso **Seja Full-Stack com Asp.NET Core, Angular + EF Core**, porem com adição de alguns recursos não ministrados durante o curso, mas que fazem parte do meu conhecimento e da minha experiência como desenvolvedor a mais de 9 anos. Abaixo estão listadas todas as tecnologias utilizadas para o desenvolvimento do projeto e também uma breve explicação:
+# Fullstack Project with Angular and .Net Core
+This was a project made during the course **Be Full-Stack with Asp.NET Core, Angular + EF Core**, but with the addition of some features not taught during the course, but which are part of my knowledge and experience as a developer for over 9 years. Below are listed all the technologies used for the development of the project and also a brief explanation:
 
- - Vagrant: ultilizado para automatizar a criação do banco de dados
-   postgres em uma maquina virtual (VirtualBox)
- - Angular: ultilizado no desenvolvimento do frontend e que faz a
-   comunicação com os serviços
- - Entity Framework: ORM utilizado para comunicação e gerenciamento das
-   trasações com o banco de dados
- - Bootstrap: framework frontend ultilizado para facilitar o
-   desenvolvimento no layout com estilização do CSS e componentes
+ - Vagrant: used to automate database creation
+   postgres on a virtual machine (VirtualBox)
+ - Angular: used in the development of the frontend and that makes the
+   communication with services
+ - Entity Framework: ORM used for communication and management of
+   database transactions
+ - Bootstrap: frontend framework used to facilitate the
+   layout development with CSS and component styling
 
-## Arquiterua de Camadas da Aplicação
-Abaixo esta a imagem da arquitetura de camadas da aplicação.
+## Application Layer Architecture
+Below is an image of the application's layered architecture.
 
-![Desenho da Arquitetura de Cadas da Aplicação](https://github.com/jcsantosgit/cursofullstack-dotnetcore/blob/main/fullstackdotnet-app/src/assets/images/arquitetura-app.png)
+![Application Layer Architecture Design](https://github.com/jcsantosgit/cursofullstack-dotnetcore/blob/main/fullstackdotnet-app/src/assets/images/arquitetura-app.png)
