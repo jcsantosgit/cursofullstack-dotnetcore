@@ -16,6 +16,9 @@ import { EventoEditComponent } from './evento/evento-edit/evento-edit.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

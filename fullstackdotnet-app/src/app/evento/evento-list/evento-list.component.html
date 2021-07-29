@@ -19,7 +19,7 @@
             E-mail: {{e.email}} <br> <br>
             <div class="btn-group">
               <a [routerLink]="['/evento-edit', e.id]" class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
-              <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+              <button id="{{e.id}}" class="btn btn-danger" (click)="openModal($event, template)" ><i class="fa fa-trash"></i></button>
               <a href="#" class="btn btn-info"><i class="fa fa-eye"></i></a>
             </div>
           </div>
@@ -27,3 +27,17 @@
       </div>
     </div>
   </div>
+
+<!-- Modal -->
+<ng-template #template>
+  <div class="modal-header">
+    Atenção
+  </div>
+  <div class="modal-body">
+    <p>Excluir este evento?</p>
+    <div class="confirm-delete">
+      <button type="button" class="btn btn-danger" (click)="confirm()" >Sim</button>
+      <button type="button" class="btn btn-dark" (click)="decline()" >Não</button>
+    </div>
+  </div>
+</ng-template>

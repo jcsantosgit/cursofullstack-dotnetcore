@@ -53,7 +53,11 @@ export class EventoService {
 
   delete(id: number) : void {
     const path = `${this.endpoint}/${id}`;
-    this.http.delete(path).subscribe();
+    this.http.delete(path).subscribe(
+      () => {
+        this.toastr.success("Evento excluído!");
+      }
+    );
   }
 
 

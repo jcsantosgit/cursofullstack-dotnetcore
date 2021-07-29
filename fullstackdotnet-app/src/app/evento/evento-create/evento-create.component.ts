@@ -45,7 +45,7 @@ export class EventoCreateComponent implements OnInit {
 
   cancel() : void {
     this.foto = "../../assets/images/indisponivel.jpg";
-    this.router.navigate(['/eventos'])
+    this.router.navigate(['/eventos']);
   }
 
   onChange(event: any) {

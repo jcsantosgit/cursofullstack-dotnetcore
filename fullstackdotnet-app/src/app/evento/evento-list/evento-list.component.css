@@ -32,3 +32,70 @@
      -moz-box-shadow: 0 10px 6px -6px #777;
           box-shadow: 0 10px 6px -6px #777;
 }
+
+.confirm-delete {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px
+}
+
+.modal-header {
+  background: #343a40;
+  color: #fff;
+}
+
+.modal-content {
+  border-radius: 0;
+}
+
+.btn-warning {
+  color: #ffc107;
+  background: transparent;
+  border-color: white;
+  border-bottom-color: #ffc107;
+}
+
+.btn-warning:hover {
+  color: white;
+  background: #ffc107;
+  border: 1px solid #ffc107;
+}
+
+.btn-danger {
+  color: #dc3545;
+  background: transparent;
+  border-color: white;
+  border-bottom-color: #dc3545;
+}
+
+.btn-danger:hover {
+  color: white;
+  background: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-info {
+  color: #17a2b8;
+  background: transparent;
+  border-color: white;
+  border-bottom-color: #17a2b8;
+}
+
+.btn-info:hover {
+  color: white;
+  background: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.btn-dark {
+  color: #343a40;
+  background: transparent;
+  border-color: white;
+  border-bottom-color: #343a40;
+}
+
+.btn-dark:hover {
+  color: white;
+  background: #343a40;
+  border-color: #343a40;
+}
