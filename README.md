@@ -1,5 +1,6 @@
 # Fullstack Project with Angular and .Net Core
-- ([Show in portuguese](README-ptBR.md))
+> ([Select portuguese](README-ptBR.md))
+
 This was a project made during the course **Be Full-Stack with Asp.NET Core, Angular + EF Core**, but with the addition of some features not taught during the course, but which are part of my knowledge and experience as a developer for over 9 years. Below are listed all the technologies used for the development of the project and also a brief explanation:
 
  - Vagrant: used to automate database creation
