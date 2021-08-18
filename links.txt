@@ -26,3 +26,13 @@ https://www.youtube.com/watch?v=9wEX_4Hasjs
 https://www.youtube.com/watch?v=NRxWaShZTQQ
 https://eschechola.com.br/2021/05/07/upload-de-arquivos-no-asp-net-core
 https://www.ti-enxame.com/pt/spring/postman-para-multipartform-data/831970770/
+
+PDF
+https://tokenlab.blog/criando-um-pdf-a-partir-de-um-html-no-angular/
+
+GRAFICOS
+https://www.tutorialspoint.com/angular_googlecharts/index.htm
+https://medium.com/codingthesmartway-com-blog/angular-chart-js-with-ng2-charts-e21c8262777f
+
+
+
