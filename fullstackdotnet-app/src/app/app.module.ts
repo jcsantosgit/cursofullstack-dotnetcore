@@ -10,7 +10,7 @@ import { PainelComponent } from './painel/painel/painel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EventoCreateComponent } from './evento/evento-create/evento-create.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventoEditComponent } from './evento/evento-edit/evento-edit.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,7 +35,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

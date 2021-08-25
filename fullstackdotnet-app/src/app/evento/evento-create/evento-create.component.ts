@@ -5,6 +5,7 @@ import { Evento } from 'src/app/models/Evento';
 
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-evento-create',
@@ -28,13 +29,30 @@ export class EventoCreateComponent implements OnInit {
     palestrantesEventos : [],
     includePalestrantes: false
   };
+  registerForm: FormGroup = new FormGroup({});
 
   constructor(private service: EventoService, private router: Router) {
     this.foto = "../../assets/images/indisponivel.jpg";
-   }
+  }
 
   ngOnInit(): void {
+    this.formInit();
+  }
 
+  formInit () {
+    this.registerForm = new FormGroup({
+      local: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+      dataEvento: new FormControl('', [Validators.required]),
+      tema: new FormControl('', Validators.required),
+      qtdPublico: new FormControl('', [Validators.required, Validators.min(10), Validators.max(100)]),
+      imageUrl: new FormControl('', Validators.required),
+      telefone: new FormControl('', [Validators.required, Validators.min(11), Validators.max(11)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      lotes: new FormControl('', Validators.required),
+      redesSociais: new FormControl('', Validators.required),
+      palestrantesEventos : new FormControl('', Validators.required),
+      includePalestrantes: new FormControl('', Validators.required)
+    })
   }
 
   criarEvento() {

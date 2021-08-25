@@ -1,8 +1,9 @@
 <h3>Cadastro de Evento</h3>
 <p>Faça o cadastro de um evento preenchendo os campos abaixo</p>
 <hr>
-<form #eventoForm="ngForm">
+<form [formGroup]="registerForm" >
   <div class="row">
+
     <div class="col-xm-12 col-sm-12 col-md-3 col-lg-3">
       <div class="card">
         <div class="card-context" style="margin-top: 10px;">
@@ -14,40 +15,59 @@
         <label class="custom-file-label" for="customFile">Escolha o arquivo</label>
       </div>
     </div>
+
     <div class="col-xm-12 col-sm-12 col-md-9 col-lg-9">
       <div class="form-group">
         <label for="local">Local</label>
-        <input type="text" class="form-control" [(ngModel)]="evento.local" name="local" [ngClass]="{'is-invalid':eventoLocal.invalid}" #eventoLocal="ngModel" required>
-        <span class="invalid-feedback">Campo obrigatório</span>
+        <input type="text"
+          [ngClass]="{'is-invalid': registerForm.get('local').errors && registerForm.get('local').touched}"
+          class="form-control"formControlName="local">
+          <span class="invalid-feedback"
+            *ngIf="registerForm.get('local').hasError('required') && registerForm.get('local').touched">campo obrigatório</span>
       </div>
 
       <div class="form-group">
-        <label for="dataVento">Data do Evento</label>
-        <input type="text" placeholder="dd/mm/aaaa" class="form-control" name="dataEvento" [(ngModel)]="evento.dataEvento" value="{{evento.dataEvento | date: 'yyyy-MM-dd'}}" >
+        <label for="dataEvento">Data do Evento</label>
+        <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': registerForm.get('dataEvento').errors && registerForm.get('dataEvento').touched}"
+          formControlName="dataEvento">
+          <span *ngIf="registerForm.get('dataEvento').hasError('required') && registerForm.get('dataEvento').touched" class="invalid-feedback">campo obrigatório</span>
       </div>
 
       <div class="form-group">
         <label for="tema">Tema</label>
-        <input type="text" class="form-control" [(ngModel)]="evento.tema" name="tema" [ngClass]="{'is-invalid': eventoTema.invalid}" #eventoTema="ngModel" required >
-        <span class="invalid-feedback">campo obrigatório</span>
+        <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': registerForm.get('tema').errors && registerForm.get('tema').touched}"
+          formControlName="tema">
+        <span *ngIf="registerForm.get('tema').hasError('required') && registerForm.get('tema').touched" class="invalid-feedback">campo obrigatório</span>
       </div>
 
       <div class="form-group">
         <label for="qtdPublico">Publico Máximo</label>
-        <input type="number" [(ngModel)]="evento.qtdPublico" class="form-control" name="qtdPublico" [ngClass]="{'is-invalid': eventoPublico.value <= 0 }" #eventoPublico="ngModel" required>
-        <span *ngIf="eventoPublico.value == 0" class="invalid-feedback">Valor invalido</span>
+        <input type="number" class="form-control"
+          [ngClass]="{'is-invalid': registerForm.get('qtdPublico').errors && registerForm.get('qtdPublico').touched}"
+          formControlName="qtdPublico">
+          <span *ngIf="registerForm.get('qtdPublico').hasError('required') && registerForm.get('qtdPublico').touched" class="invalid-feedback">campo obrigatório</span>
+          <span *ngIf="registerForm.get('qtdPublico').hasError('min') && registerForm.get('qtdPublico').touched" class="invalid-feedback">valor mínimo é 10</span>
+          <span *ngIf="registerForm.get('qtdPublico').hasError('max') && registerForm.get('qtdPublico').touched">valor máximo é 100</span>
       </div>
 
       <div class="form-group">
         <label for="telefone">Telefone</label>
-        <input type="number" name="telefone" class="form-control" [(ngModel)]="evento.telefone" name="telefone" [ngClass]="{'is-invalid': eventoTelefone.invalid}" #eventoTelefone="ngModel" required>
-        <span class="invalid-feedback">campo obrigatório</span>
+        <input type="text" class="form-control" formControlName="telefone"
+          [ngClass]="{'is-invalid': registerForm.get('telefone').errors && registerForm.get('telefone').touched}"
+          formControlName="telefone">
+          <span *ngIf="registerForm.get('telefone').hasError('required') && registerForm.get('telefone').touched"
+            class="invalid-feedback">campo obrigatório</span>
       </div>
 
       <div class="form-group">
         <label for="email">E-mail</label>
-        <input type="email" name="email" class="form-control" [(ngModel)]="evento.email" name="email" [ngClass]="{'is-invalid': eventoEmail.invalid}" #eventoEmail="ngModel" required>
-        <span class="invalid-feedback">campo obrigatório</span>
+        <input type="email" class="form-control is-invalid"
+          [ngClass]="{'is-invalid': registerForm.get('email').errors && registerForm.get('email').touched}"
+          formControlName="email">
+          <span *ngIf="registerForm.get('email').hasError('required') &&  registerForm.get('email').touched" class="invalid-feedback">campo obrigatório</span>
+          <span *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').touched" class="invalid-feedback">E-mail invalido</span>
       </div>
     </div>
   </div>
@@ -55,6 +75,9 @@
   <hr>
 
   <button class="btn btn-dark col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2" (click)="cancel()">Voltar</button>
-  <button [disabled]="eventoForm.invalid" class="btn btn-success float-right col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2"
+  <button class="btn btn-success float-right col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2"
+    [disabled]="!registerForm.valid"
     (click)="criarEvento()">Salvar</button>
+
+    <p> {{registerForm.status | json}} </p>
 </form>
