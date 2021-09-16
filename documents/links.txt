@@ -35,4 +35,13 @@ https://www.tutorialspoint.com/angular_googlecharts/index.htm
 https://medium.com/codingthesmartway-com-blog/angular-chart-js-with-ng2-charts-e21c8262777f
 
 
+POSTGRES NO DOCKER
+https://www.youtube.com/watch?v=aHbE3pTyG-Q
+
+DOCKHER HUB POSTGRES
+https://hub.docker.com/_/postgres
+
+HABILITAR EXECUÇÃO DE SCRIPTS NO WINDOWS PELO POWERSHELL (Ex.: ng serve)
+https://stackoverflow.com/questions/57066856/command-dotnet-ef-not-found-in-net-core-3
+
 

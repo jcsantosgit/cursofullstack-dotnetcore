@@ -45,13 +45,8 @@ export class EventoCreateComponent implements OnInit {
       dataEvento: new FormControl('', [Validators.required]),
       tema: new FormControl('', Validators.required),
       qtdPublico: new FormControl('', [Validators.required, Validators.min(10), Validators.max(100)]),
-      imageUrl: new FormControl('', Validators.required),
       telefone: new FormControl('', [Validators.required, Validators.min(11), Validators.max(11)]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      lotes: new FormControl('', Validators.required),
-      redesSociais: new FormControl('', Validators.required),
-      palestrantesEventos : new FormControl('', Validators.required),
-      includePalestrantes: new FormControl('', Validators.required)
+      email: new FormControl('', [Validators.required, Validators.email])
     })
   }
 
