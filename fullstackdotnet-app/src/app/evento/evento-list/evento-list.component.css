@@ -1,5 +1,5 @@
 .search {
-  width: 100%;
+  width: 350px;
   margin: 10px 0;
   padding: 10px;
   border: thin solid #ccc;
@@ -13,6 +13,11 @@
   text-align: right;
 }
 
+.btn-info {
+  background: #40BEAE;
+  color: #fff;
+}
+
 .card {
   margin: 10px 0;
 }
@@ -23,7 +28,7 @@
 }
 
 .card:hover {
-  border-color: #0078D4;
+  border-color: #40BEAE;
 }
 
 .card {
@@ -48,54 +53,3 @@
   border-radius: 0;
 }
 
-.btn-warning {
-  color: #ffc107;
-  background: transparent;
-  border-color: white;
-  border-bottom-color: #ffc107;
-}
-
-.btn-warning:hover {
-  color: white;
-  background: #ffc107;
-  border: 1px solid #ffc107;
-}
-
-.btn-danger {
-  color: #dc3545;
-  background: transparent;
-  border-color: white;
-  border-bottom-color: #dc3545;
-}
-
-.btn-danger:hover {
-  color: white;
-  background: #dc3545;
-  border-color: #dc3545;
-}
-
-.btn-info {
-  color: #17a2b8;
-  background: transparent;
-  border-color: white;
-  border-bottom-color: #17a2b8;
-}
-
-.btn-info:hover {
-  color: white;
-  background: #17a2b8;
-  border-color: #17a2b8;
-}
-
-.btn-dark {
-  color: #343a40;
-  background: transparent;
-  border-color: white;
-  border-bottom-color: #343a40;
-}
-
-.btn-dark:hover {
-  color: white;
-  background: #343a40;
-  border-color: #343a40;
-}

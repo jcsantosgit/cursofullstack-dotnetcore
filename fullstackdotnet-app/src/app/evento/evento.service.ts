@@ -8,8 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EventoService {
 
-  url = "http://localhost:5000"
-  api = "api/evento";
+  url = "http://localhost:3001"
+  api = "Evento";
 
   endpoint = `${this.url}/${this.api}`;
 

@@ -3,6 +3,10 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 
+body {
+  background: #f1f1f1;
+}
+
 .form-control {
   border-radius: 0;
   font-size: 14px;
@@ -11,4 +15,8 @@
 .btn {
   border-radius: 0;
   margin-top: 3px;
+}
+
+.content-centrilize {
+  margin: 0 100px;
 }
