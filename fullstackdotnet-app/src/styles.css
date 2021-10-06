@@ -20,3 +20,8 @@ body {
 .content-centrilize {
   margin: 0 100px;
 }
+
+.header-page {
+  display: flex;
+  flex-flow: row;
+}

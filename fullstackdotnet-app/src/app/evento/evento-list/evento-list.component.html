@@ -1,12 +1,16 @@
 <div class="container-fluid">
-  <h3>Lista de Eventos</h3>
-  <p>Abaixo estão todos os eventos cadastrados no sistema</p>
-  <div class="btn-novo">
-    <a routerLink="/evento-create" class="btn btn-info">Novo <span class="fas fa-plus-circle"></span></a>
-  </div>
-  <hr>
+    <div class="header-page">
+      <div>
+        <h3>Lista de Eventos</h3>
+        <p>Abaixo estão todos os eventos cadastrados no sistema</p>
+      </div>
+      <a routerLink="/evento-create" class="btn btn-info">Novo <span class="fas fa-plus-circle"></span></a>
+    </div>
+    <hr>
   <div style="width: 100%; text-align: center;">
-    <input type="text" class="search" placeholder="pesquisar">
+    <div class="search">
+      <input type="text" class="search" placeholder="Pesquisar..."><a><img src="../../../assets/images/search.png"></a>
+    </div>
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3" *ngFor="let e of eventos">
