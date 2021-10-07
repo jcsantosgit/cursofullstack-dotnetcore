@@ -8,8 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EventoService {
 
-  url = "http://localhost:5001"
-  api = "api/Evento";
+  url = "http://localhost:3001"
+  api = "Eventos";
 
   endpoint = `${this.url}/${this.api}`;
 
@@ -18,11 +18,11 @@ export class EventoService {
   }
 
   searchById(id: number) : Observable<Evento> {
-    const path = `${this.endpoint}/${id}/false`;
+    const path = `${this.endpoint}/${id}`;
     return this.http.get<Evento>(path);
   }
 
-  listar(): Observable<Evento[]> {
+  list(): Observable<Evento[]> {
     try {
       return this.http.get<Evento[]>(this.endpoint);
     } catch (error) {

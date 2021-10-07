@@ -2,6 +2,7 @@
 
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+@import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 
 body {
   background: #f1f1f1;
@@ -21,7 +22,6 @@ body {
   margin: 0 100px;
 }
 
-.header-page {
-  display: flex;
-  flex-flow: row;
+.navbar-expand-sm {
+  box-shadow: 1px 1px 5px 6px rgba(0, 0, 0, 0.2);
 }

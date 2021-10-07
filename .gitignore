@@ -17,6 +17,7 @@ fullstackdotnet-app/bazel-out
 
 # dependencies
 fullstackdotnet-app/node_modules
+jsonserver/node_modules
 
 # profiling files
 chrome-profiler-events*.json

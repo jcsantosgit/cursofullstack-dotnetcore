@@ -1,8 +1,17 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">
-   <img src="../assets/images/angular.png" alt="Logo" width="40" height="40">
- </a>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex flex-row-reverse">
+
+  <div class="btn-group my-2" dropdown>
+    <button id="button-basic" dropdownToggle type="button" class="btn dropdown-toggle text-white" aria-controls="dropdown-basic" style="outline: unset;">
+      <span style="margin-right: 5px;">João Santos</span> <i class="fa fa-user" style="margin-right: 2px;"></i> <span class="caret"></span>
+    </button>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu mr-auto" role="menu" aria-labelledby="button-basic">
+      <li role="menuitem"><a class="dropdown-item text-right mt-2" href="#">Perfil <i class="fa fa-cog"></i></a></li>
+      <li role="menuitem"><a class="dropdown-item text-right mt-2" href="#">Sair <i class="fa fa-power-off"></i></a></li>
+    </ul>
+  </div>
+
 </nav>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2 sidemenu">

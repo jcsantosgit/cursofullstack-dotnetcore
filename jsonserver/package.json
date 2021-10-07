@@ -1,0 +1,14 @@
+{
+  "name": "jsonserver",
+  "version": "1.0.0",
+  "description": "json server para teste da aplicação feita em angular",
+  "main": "index.js",
+  "scripts": {
+    "start": "start json-server --watch db.json --port 3001"
+  },
+  "author": "Joao Santos",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}

@@ -1,49 +1,57 @@
 <div class="container-fluid">
+
+    <!-- Header página -->
     <div class="header-page">
       <div>
         <h3>Lista de Eventos</h3>
         <p>Abaixo estão todos os eventos cadastrados no sistema</p>
       </div>
-      <a routerLink="/evento-create" class="btn btn-info">Novo <span class="fas fa-plus-circle"></span></a>
+      <div>
+        <a routerLink="/evento-create" class="btn btn-info btn-novo">Novo <span class="fas fa-plus-circle"></span></a>
+      </div>
     </div>
     <hr>
-  <div style="width: 100%; text-align: center;">
-    <div class="search">
-      <input type="text" class="search" placeholder="Pesquisar..."><a><img src="../../../assets/images/search.png"></a>
+
+    <!-- Campo de pesquisa -->
+    <div style="width: 100%; text-align: center;">
+      <div class="search">
+        <input type="text" class="search" placeholder="Pesquisar..."><a><img src="../../../assets/images/search.png"></a>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3" *ngFor="let e of eventos">
-      <div class="card">
-        <img src="{{e.imageUrl}}" class="card-img-top" width="365.5" height="330" />
-        <div class="card-body">
-          <h5 class="card-title" style="height: 40px; font-size: 16px; font-weight: bold; color: #333;">{{e.tema}}</h5>
-          <div class="card-context">
-            Local: {{e.local}} <br>
-            Data: {{e.dataEvento}} <br>
-            Fone: {{e.telefone}} <br>
-            E-mail: {{e.email}} <br> <br>
-            <div class="btn-group">
-              <a [routerLink]="['/evento-edit', e.id]" class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
-              <button id="{{e.id}}" class="btn btn-danger" (click)="openModal($event, template)" ><i class="fa fa-trash"></i></button>
-              <a href="#" class="btn btn-info"><i class="fa fa-eye"></i></a>
+
+    <!-- Lista de cards -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3" *ngFor="let e of eventos">
+        <div class="card">
+          <img src="{{e.imageUrl}}" class="card-img-top" width="365.5" height="330" />
+          <div class="card-body">
+            <h5 class="card-title" style="height: 40px; font-size: 16px; font-weight: bold; color: #333;">{{e.tema}}</h5>
+            <div class="card-context">
+              Local: {{e.local}} <br>
+              Data: {{e.dataEvento}} <br>
+              Fone: {{e.telefone}} <br>
+              E-mail: {{e.email}} <br> <br>
+              <div class="btn-group">
+                <a [routerLink]="['/evento-edit', e.id]" class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
+                <button id="{{e.id}}" class="btn btn-danger" (click)="openModal($event, template)" ><i class="fa fa-trash"></i></button>
+                <a href="#" class="btn btn-info"><i class="fa fa-eye"></i></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-<!-- Modal -->
-<ng-template #template>
-  <div class="modal-header">
-    Atenção
-  </div>
-  <div class="modal-body">
-    <p>Excluir este evento?</p>
-    <div class="confirm-delete">
-      <button type="button" class="btn btn-danger" (click)="confirm()" >Sim</button>
-      <button type="button" class="btn btn-dark" (click)="decline()" >Não</button>
-    </div>
-  </div>
-</ng-template>
+    <!-- Modal de Exclusão -->
+    <ng-template #template>
+      <div class="modal-header">
+        Atenção
+      </div>
+      <div class="modal-body">
+        <p>Excluir este evento?</p>
+        <div class="confirm-delete">
+          <button type="button" class="btn btn-danger" (click)="confirm()" >Sim</button>
+          <button type="button" class="btn btn-dark" (click)="decline()" >Não</button>
+        </div>
+      </div>
+    </ng-template>

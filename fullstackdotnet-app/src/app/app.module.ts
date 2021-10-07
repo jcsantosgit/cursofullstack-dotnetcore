@@ -15,6 +15,8 @@ import { EventoEditComponent } from './evento/evento-edit/evento-edit.component'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 
@@ -35,6 +37,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     ModalModule.forRoot(),
     ReactiveFormsModule
   ],

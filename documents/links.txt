@@ -47,4 +47,7 @@ https://docs.docker.com/samples/postgresql_service/
 HABILITAR EXECUÇÃO DE SCRIPTS NO WINDOWS PELO POWERSHELL (Ex.: ng serve)
 https://stackoverflow.com/questions/57066856/command-dotnet-ef-not-found-in-net-core-3
 
+NGX BOOTSTRAP
+https://valor-software.com/ngx-bootstrap/#/datepicker
+
 

@@ -23,7 +23,7 @@ export class EventoListComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.service.listar().subscribe(
+    this.service.list().subscribe(
       eventos => {
         this.eventos = eventos
       }
