@@ -15,7 +15,7 @@
     <!-- Campo de pesquisa -->
     <div style="width: 100%; text-align: center;">
       <div class="search">
-        <input type="text" class="search" placeholder="Pesquisar..."><a><img src="../../../assets/images/search.png"></a>
+        <input [(ngModel)]="filter" type="text" class="search" placeholder="Pesquisar..."><a (click)="search()"><img src="../../../assets/images/search.png"></a>
       </div>
     </div>
 

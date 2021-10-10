@@ -13,20 +13,22 @@ export class EventoEditComponent implements OnInit {
 
   eventoId?: number;
   foto: string = "";
-
-  evento: Evento = {
-    local:"",
-    dataEvento: new Date(),
-    tema: "",
-    qtdPublico: 0,
-    imageUrl: "../../assets/images/indisponivel.jpg",
-    telefone: "",
-    email: "",
-    lotes: [],
-    redesSociais: [],
-    palestrantesEventos : [],
-    includePalestrantes: false
-  }
+  evento: Evento;
+  
+  // evento: Evento = {
+  //   local:"",
+  //   dataEvento: new Date(),
+  //   tema: "",
+  //   qtdPublico: 0,
+  //   imageUrl: "../../assets/images/indisponivel.jpg",
+  //   telefone: "",
+  //   email: "",
+  //   conteudoProgramatico: "",
+  //   lotes: [],
+  //   redesSociais: [],
+  //   palestrantesEventos : [],
+  //   includePalestrantes: false
+  // }
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -34,6 +36,7 @@ export class EventoEditComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+
     var id = this.activatedRoute.snapshot.params['id'];
     this.eventoId =  Number.parseInt(id);
     this.service.searchById(this.eventoId).subscribe(

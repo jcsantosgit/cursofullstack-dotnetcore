@@ -51,13 +51,9 @@ export class EventoService {
     }
   }
 
-  delete(id: number) : void {
+  delete(id: number) : Observable<any> {
     const path = `${this.endpoint}/${id}`;
-    this.http.delete(path).subscribe(
-      () => {
-        this.toastr.success("Evento excluído!");
-      }
-    );
+    return this.http.delete<any>(path);
   }
 
 

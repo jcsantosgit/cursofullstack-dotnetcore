@@ -6,6 +6,7 @@ import { Evento } from 'src/app/models/Evento';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EventoEditComponent } from '../evento-edit/evento-edit.component';
 
 @Component({
   selector: 'app-evento-create',
@@ -15,20 +16,23 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class EventoCreateComponent implements OnInit {
 
   foto = ""
+  evento: Evento;
 
-  evento: Evento = {
-    local:"",
-    dataEvento: new Date(),
-    tema: "",
-    qtdPublico: 0,
-    imageUrl: "../../assets/images/indisponivel.jpg",
-    telefone: "",
-    email: "",
-    lotes: [],
-    redesSociais: [],
-    palestrantesEventos : [],
-    includePalestrantes: false
-  };
+  // evento: Evento = {
+  //   local:"",
+  //   dataEvento: new Date(),
+  //   tema: "",
+  //   qtdPublico: 0,
+  //   imageUrl: "../../assets/images/indisponivel.jpg",
+  //   telefone: "",
+  //   email: "",
+  //   conteudoProgramatico: "",
+  //   lotes: [],
+  //   redesSociais: [],
+  //   palestrantesEventos : [],
+  //   includePalestrantes: false
+  // };
+  
   registerForm: FormGroup = new FormGroup({});
 
   constructor(private service: EventoService, private router: Router) {
@@ -46,19 +50,23 @@ export class EventoCreateComponent implements OnInit {
       tema: new FormControl('', Validators.required),
       qtdPublico: new FormControl('', [Validators.required, Validators.min(10), Validators.max(100)]),
       telefone: new FormControl('', [Validators.required, Validators.maxLength(11)]),
-      email: new FormControl('', [Validators.required, Validators.email])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      conteudoProgramatico: new FormControl('', [Validators.required])
     })
   }
 
-  criarEvento() {
-    this.evento.imageUrl = this.foto;
-    this.service.create(this.evento);
-    this.cancel();
+  create() {
+    if(!this.registerForm.invalid){
+      this.evento = Object.assign({}, this.registerForm.value)      
+      this.evento.imageUrl = this.foto;
+      this.service.create(this.evento);
+      this.cancel();
+    }
   }
 
   cancel() : void {
     this.foto = "../../assets/images/indisponivel.jpg";
-    this.router.navigate(['/eventos']);
+    this.router.navigate(['/eventos']);   
   }
 
   onChange(event: any) {

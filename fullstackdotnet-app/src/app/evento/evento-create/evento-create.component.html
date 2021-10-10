@@ -6,11 +6,7 @@
     <div class="row">
   
       <div class="col-xm-12 col-sm-12 col-md-3 col-lg-3">
-        <div class="card">
-          <div class="card-context" style="margin-top: 10px;">
-            <img class="card-img-top" [src]="foto" alt="Imagem do evento" width="365.5" height="365.5">
-          </div>
-        </div>
+        <img class="banner" [src]="foto" alt="Imagem do evento">
         <input type="file" id="customFile" (change)="onChange($event)" style="display: none;">
         <label for="customFile" class="upload">Escolha a imagem</label>
       </div>
@@ -79,16 +75,52 @@
             <span *ngIf="registerForm.get('email').hasError('required') &&  registerForm.get('email').touched" class="invalid-feedback">campo obrigatório</span>
             <span *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').touched" class="invalid-feedback">E-mail invalido</span>
         </div>
+
+        <div class="form-group">
+          <label for="conteudoProgramatico">Conteudo Programatico</label>
+          <textarea 
+            name="conteudoProgramatico" 
+            class="form-control conteudo-programatico" cols="30" rows="10" 
+            placeholder="Separar tópicos usando o caractere #, por exemplo: 1 - Trabalhando com Componentes # 2 - Fazendo Requisições no Angular # 3 - Criando uma Aplicação Completa"
+            formControlName="conteudoProgramatico"></textarea>
+            <span *ngIf="registerForm.get('conteudoProgramatico').hasError('required') &&  registerForm.get('conteudoProgramatico').touched" class="invalid-feedback">campo obrigatório</span>
+        </div>
+
+        <div class="form-group text-right" style="padding-right: 0;">
+          <button class="btn btn-link text-danger">Adicionar Palestrante</button>
+        </div>
+        <hr>
+
+        <div class="palestrantes-container">
+          
+          <div class="card">
+            <img class="card-img-top" src="../../../assets/images/eu.png" alt="Card image">
+            <div class="card-body">
+              <h6 class="card-title">João Santos</h6>
+              <p class="card-text">Desenvolvedor Fullstack</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-img-top" src="../../../assets/images/indisponivel.jpg" alt="Card image">
+            <div class="card-body">
+              <h6 class="card-title">João Santos</h6>
+              <p class="card-text">Desenvolvedor Fullstack</p>
+            </div>
+          </div>
+
+        </div>        
+
       </div>
     </div>
-  
-    <hr>
-  
-    <button class="btn btn-dark col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2" (click)="cancel()">Voltar</button>
-    <button class="btn btn-success float-right col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2"
-      [disabled]="!registerForm.valid"
-      (click)="criarEvento()">Salvar</button>
-  
-      <p> {{registerForm.status | json}} </p>
+    
+    <div style="margin-top: 60px">
+      <button class="btn btn-dark col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2" (click)="cancel()">Voltar</button>
+      <button class="btn btn-success float-right col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2"
+        [disabled]="!registerForm.valid"
+        (click)="create()">Salvar</button>
+    
+        <p> {{registerForm.status | json}} </p>
+    </div>
   </form>
 </div>

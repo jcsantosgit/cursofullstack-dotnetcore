@@ -15,31 +15,49 @@ export class EventoListComponent implements OnInit {
   modalRef: BsModalRef = new BsModalRef();
   message: string = "";
   id: number = 0;
+  filter: string;
 
   constructor(
     private service: EventoService,
     private modalService: BsModalService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
+    this.getEventos();
+  }
+
+  search() {
+    console.log(this.filter);
+  }
+
+  getEventos() {
     this.service.list().subscribe(
-      eventos => {
-        this.eventos = eventos
+      response => {
+        this.eventos = response;
+      },
+      error => {
+        console.log(error);
       }
     )
   }
 
   openModal($event: any, template: TemplateRef<any>) {
     this.id = $event.target.id;
+    console.log(this.id);
     this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
   }
 
   confirm(): void {
-    this.message = 'Confirmed!';
-    this.modalRef.hide();
-    this.service.delete(this.id);
-    this.ngOnInit();
+    this.service.delete(this.id).subscribe(()=>{
+      this.modalRef.hide();
+      this.getEventos();
+      this.message = 'Confirmed!';
+    },
+    error => {
+      console.log(error);
+    }
+    )
   }
 
   decline(): void {
