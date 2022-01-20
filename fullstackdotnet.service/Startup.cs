@@ -46,7 +46,7 @@ namespace fullstackdotnet.service
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseCors(c => 
                 c.AllowAnyOrigin()

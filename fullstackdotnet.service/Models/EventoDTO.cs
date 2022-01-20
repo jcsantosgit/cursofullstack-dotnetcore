@@ -14,6 +14,7 @@ namespace fullstackdotnet.service.Models
         public string ImageUrl { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
+        public string Conteudo { get; set; }
         public List<LoteDTO> Lotes { get; set; }
         public List<RedeSocialDTO> RedesSociais { get; set; }
         public List<PalestranteEventoDTO> PalestrantesEventos { get; set; }

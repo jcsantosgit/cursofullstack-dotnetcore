@@ -51,3 +51,25 @@ NGX BOOTSTRAP
 https://valor-software.com/ngx-bootstrap/#/datepicker
 
 
+WEBSOCKET
+https://www.codeproject.com/Articles/1063910/WebSocket-Server-in-Csharp
+
+
+ANGULAR E SIGNALR
+https://code-maze.com/netcore-signalr-angular-realtime-charts/
+https://www.luisdev.com.br/2020/07/30/asp-net-core-signalr-e-angular-8-criando-um-painel-de-cotacoes-de-acoes-com-dados-em-tempo-real/
+https://www.google.com/search?q=signalr+e+flutter&rlz=1C1GCEU_pt-BRBR967BR967&oq=signalr+e+flutter&aqs=chrome..69i57j0i22i30l4.9456j0j7&sourceid=chrome&ie=UTF-8
+https://www.youtube.com/watch?v=nEQvA5HfEDE
+https://blog.cloudboost.io/simple-chat-react-java-6923b54d65a0
+
+
+Abra o terminal:
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+https://docs.microsoft.com/pt-br/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package
+
+Defina o WSL2 como padrão:
+wsl --set-default-version 2
+
+JAVASCRIPT E PDF
+https://cursos.alura.com.br/forum/topico-como-extrair-texto-de-um-determinado-pdf-usando-javascript-para-um-sistema-de-busca-31880
+https://www.npmjs.com/package/pdfreader

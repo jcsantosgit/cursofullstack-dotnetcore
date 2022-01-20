@@ -9,7 +9,7 @@ using fullstackdotnet.service.Models;
 
 namespace fullstackdotnet.service.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class FileManagerController : ControllerBase
     {
         private IWebHostEnvironment _environment;

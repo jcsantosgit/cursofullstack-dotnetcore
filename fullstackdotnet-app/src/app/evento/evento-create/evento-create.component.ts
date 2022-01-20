@@ -17,21 +17,6 @@ export class EventoCreateComponent implements OnInit {
 
   foto = ""
   evento: Evento;
-
-  // evento: Evento = {
-  //   local:"",
-  //   dataEvento: new Date(),
-  //   tema: "",
-  //   qtdPublico: 0,
-  //   imageUrl: "../../assets/images/indisponivel.jpg",
-  //   telefone: "",
-  //   email: "",
-  //   conteudoProgramatico: "",
-  //   lotes: [],
-  //   redesSociais: [],
-  //   palestrantesEventos : [],
-  //   includePalestrantes: false
-  // };
   
   registerForm: FormGroup = new FormGroup({});
 
@@ -51,7 +36,7 @@ export class EventoCreateComponent implements OnInit {
       qtdPublico: new FormControl('', [Validators.required, Validators.min(10), Validators.max(100)]),
       telefone: new FormControl('', [Validators.required, Validators.maxLength(11)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      conteudoProgramatico: new FormControl('', [Validators.required])
+      conteudo: new FormControl('', [Validators.required])
     })
   }
 

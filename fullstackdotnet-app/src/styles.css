@@ -18,10 +18,11 @@ body {
   margin-top: 3px;
 }
 
-.content-centrilize {
-  margin: 0 100px;
-}
 
 .navbar-expand-sm {
   box-shadow: 1px 1px 5px 6px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+  margin-top: 15px;
 }

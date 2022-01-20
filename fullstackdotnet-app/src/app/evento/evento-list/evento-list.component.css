@@ -19,6 +19,7 @@
   border: thin solid #ccc;
   box-shadow: #333;
   border-radius: 13px;
+  margin-bottom: 20px;
 }
 
 .search > img {
@@ -77,13 +78,12 @@
 }
 
 .card:hover {
-  margin-right: 1px;
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.3)
+  margin-top: 3px !important;
+  box-shadow: 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
 .card {
   border-color: #f1f1f1;
-  box-shadow: 2px 3px 2px 2px rgba(0, 0, 0, 0.3)
 }
 
 .confirm-delete {

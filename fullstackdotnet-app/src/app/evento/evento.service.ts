@@ -8,23 +8,22 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EventoService {
 
-  url = "http://localhost:3001"
-  api = "Eventos";
-
-  endpoint = `${this.url}/${this.api}`;
+  url = "http://localhost:5000";
+  controller = "api/Evento";
 
   constructor(private http: HttpClient, private toastr: ToastrService) {
 
   }
 
   searchById(id: number) : Observable<Evento> {
-    const path = `${this.endpoint}/${id}`;
-    return this.http.get<Evento>(path);
+    const endpoint = `${this.url}/${this.controller}/search-by-id/${id}`;
+    return this.http.get<Evento>(endpoint);
   }
 
   list(): Observable<Evento[]> {
     try {
-      return this.http.get<Evento[]>(this.endpoint);
+      const endpoint = `${this.url}/${this.controller}/list`
+      return this.http.get<Evento[]>(endpoint);
     } catch (error) {
       console.log(error);
       throw error;
@@ -33,7 +32,8 @@ export class EventoService {
 
   create(evento: Evento) : void {
     try {
-      this.http.post(this.endpoint, evento).subscribe(
+      const endpoint = `${this.url}/${this.controller}/create`
+      this.http.post(endpoint, evento).subscribe(
         () => {this.toastr.success('Evento cadastrado!')}
       );
     } catch (error) {
@@ -43,7 +43,8 @@ export class EventoService {
 
   update(evento: Evento) : void {
     try {
-      this.http.put(this.endpoint, evento).subscribe(
+      const endpoint = `${this.url}/${this.controller}/update`
+      this.http.put(endpoint, evento).subscribe(
         () => {this.toastr.success('Evento alterado!')}
       );
     } catch (error) {
@@ -52,16 +53,16 @@ export class EventoService {
   }
 
   delete(id: number) : Observable<any> {
-    const path = `${this.endpoint}/${id}`;
-    return this.http.delete<any>(path);
+    const endpoint = `${this.url}/${this.controller}/remove/${id}`;
+    console.log('exclusão');
+    console.log(endpoint);
+    return this.http.delete(endpoint);
   }
 
-
   upload(file: FormData) : any {
-    console.log(file);
-    const path = `${this.url}/api/FileManager/upload`;
-    console.log(path);
+    const path = `${this.url}/filemanager/upload`;
     const res = this.http.post(path, file).subscribe();
     return res;
   }
+
 }

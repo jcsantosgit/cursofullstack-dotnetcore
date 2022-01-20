@@ -7,7 +7,7 @@ export interface Evento {
   imageUrl: string;
   telefone: string;
   email: string;
-  conteudoProgramatico: string;
+  conteudo: string;
   lotes: any;
   redesSociais: any;
   palestrantesEventos: any;

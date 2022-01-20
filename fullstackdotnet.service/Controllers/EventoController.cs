@@ -20,12 +20,16 @@ namespace fullstackdotnet.service.Controllers
             _repository = repository;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> List(bool includePalestrantes)
+        // -----------------------------------
+        // LEITURA
+        // -----------------------------------
+
+        [HttpGet("list")]
+        public async Task<IActionResult> List()
         {
             try
             {
-                var query = await _repository.GetAllEventoAsync(includePalestrantes);
+                var query = await _repository.GetAllEventoAsync(false);
                 return Ok(query);
             }
             catch (Exception ex)
@@ -34,21 +38,24 @@ namespace fullstackdotnet.service.Controllers
             }
         }
 
-        [HttpGet("get-by-tema/{tema}/{incluirPalestrante}")]
-        public async Task<IActionResult> GetByTema(string tema, bool incluirPalestrante)
+        [HttpGet("search-by-title/{title}")]
+        public async Task<IActionResult> SearchByTitle(string title)
         {
-                var query = await _repository.GetAllEventoByTemaAsync(tema, incluirPalestrante);
+                var query = await _repository.GetAllEventoByTemaAsync(title, false);
                 return Ok(query);
         }
 
-        [HttpGet("{id}/{incluirPalestrante}")]
-        public async Task<IActionResult> GetById(int id, bool incluirPalestrante)
+        [HttpGet("search-by-id/{id}")]
+        public async Task<IActionResult> SearchByCode(int id)
         {
-                var query = await _repository.GetEventoByIdAsync(id, incluirPalestrante);
+                var query = await _repository.GetEventoByIdAsync(id, false);
                 return Ok(query);            
         }
 
-        [HttpPost]
+        // -----------------------------------
+        // ESCRIA E ALTERAÇÃO
+        // -----------------------------------
+        [HttpPost("create")]
         public async Task<IActionResult> Create(EventoDTO model)
         {
             try
@@ -59,7 +66,7 @@ namespace fullstackdotnet.service.Controllers
                 if(await _repository.SaveChangesAsync())
                 {
                     model.Id = entity.Id;
-                    return Created($"api/evento/{entity.Id}/{false}", model);
+                    return Created("/evento/{entity.Id}", model);
                 }
 
                 return BadRequest("Recurso não encontrado");
@@ -70,7 +77,7 @@ namespace fullstackdotnet.service.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut("update")]
         public async Task<IActionResult> Update(EventoDTO model)
         {
             try
@@ -84,7 +91,7 @@ namespace fullstackdotnet.service.Controllers
                 if(await _repository.SaveChangesAsync())
                 {
                     model.Id = entity.Id;
-                    return Created($"api/evento/{entity.Id}/{false}", model);
+                    return Created("/evento/{entity.Id}", model);
                 }
                 
                 return BadRequest("Recurso não encontrado");
@@ -95,8 +102,8 @@ namespace fullstackdotnet.service.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("remove/{id}")]
+        public async Task<IActionResult> Remove(int id)
         {
             try
             {
@@ -104,14 +111,13 @@ namespace fullstackdotnet.service.Controllers
                 // if(entity == null) NotFound("ID não encontado");
                 _repository.Delete<Evento>(new Evento { Id = id});
                 
-                if(await _repository.SaveChangesAsync())
-                    return Ok("Success");
+                if(await _repository.SaveChangesAsync()) Ok("Sucesso!");
 
                 return BadRequest("Não foi possível excluir o Evento");
             }
             catch (Exception ex)
             {
-                throw ex;
+                return BadRequest(ex.Message);
             }
         }
     }

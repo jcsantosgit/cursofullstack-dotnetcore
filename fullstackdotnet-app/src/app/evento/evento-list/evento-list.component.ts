@@ -24,7 +24,11 @@ export class EventoListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getEventos();
+    this.loadEvents(500);
+  }
+
+  loadEvents(second: number): void {
+    setTimeout(() => this.getEventos(), second);
   }
 
   search() {
@@ -34,7 +38,7 @@ export class EventoListComponent implements OnInit {
   getEventos() {
     this.service.list().subscribe(
       response => {
-        this.eventos = response;
+        this.eventos = response
       },
       error => {
         console.log(error);
@@ -44,15 +48,16 @@ export class EventoListComponent implements OnInit {
 
   openModal($event: any, template: TemplateRef<any>) {
     this.id = $event.target.id;
-    console.log(this.id);
     this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
   }
 
-  confirm(): void {
+  confirm(event): void {
+    
+    this.modalRef.hide();
+
     this.service.delete(this.id).subscribe(()=>{
-      this.modalRef.hide();
-      this.getEventos();
-      this.message = 'Confirmed!';
+      this.message = 'Confirmed!';      
+      this.loadEvents(500);
     },
     error => {
       console.log(error);
@@ -65,5 +70,4 @@ export class EventoListComponent implements OnInit {
     this.id = 0;
     this.modalRef.hide();
   }
-
 }
