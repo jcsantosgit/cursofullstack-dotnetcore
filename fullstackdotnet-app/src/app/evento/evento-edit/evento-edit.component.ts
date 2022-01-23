@@ -28,7 +28,6 @@ export class EventoEditComponent implements OnInit {
     this.eventoId =  Number.parseInt(id);
     this.service.searchById(this.eventoId).subscribe(
       e => {
-        console.log(e);
         this.evento = e;
         this.foto = e.imageUrl;
       }

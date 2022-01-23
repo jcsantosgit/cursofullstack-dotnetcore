@@ -84,32 +84,7 @@
             placeholder="Separar tópicos usando o caractere #, por exemplo: 1 - Trabalhando com Componentes # 2 - Fazendo Requisições no Angular # 3 - Criando uma Aplicação Completa"
             formControlName="conteudo"></textarea>
             <span *ngIf="registerForm.get('conteudo').hasError('required') &&  registerForm.get('conteudo').touched" class="invalid-feedback">campo obrigatório</span>
-        </div>
-
-        <div class="form-group text-right" style="padding-right: 0;">
-          <button class="btn btn-link text-danger">Adicionar Palestrante</button>
-        </div>
-        <hr>
-
-        <div class="palestrantes-container">
-          
-          <div class="card">
-            <img class="card-img-top" src="../../../assets/images/eu.png" alt="Card image">
-            <div class="card-body">
-              <h6 class="card-title">João Santos</h6>
-              <p class="card-text">Desenvolvedor Fullstack</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <img class="card-img-top" src="../../../assets/images/indisponivel.jpg" alt="Card image">
-            <div class="card-body">
-              <h6 class="card-title">João Santos</h6>
-              <p class="card-text">Desenvolvedor Fullstack</p>
-            </div>
-          </div>
-
-        </div>        
+        </div>   
 
       </div>
     </div>

@@ -39,12 +39,13 @@ namespace fullstackdotnet.service.Models
                 Evento entity = new Evento();
                 entity.Id = model.Id;
                 entity.Local = model.Local;
-                entity.DataEvento = model.DataEvento.Value;
+                entity.DataEvento = model.DataEvento.Value.Date;
                 entity.Tema = model.Tema;
                 entity.QtdPublico = model.QtdPublico;
                 entity.ImageUrl = model.ImageUrl;
                 entity.Telefone = model.Telefone;
                 entity.Email = model.Email;
+                entity.Conteudo = model.Conteudo;
 
                 if(model.Lotes != null)
                     entity.Lotes = LoteDTO.ParseToEntities(model.Lotes);

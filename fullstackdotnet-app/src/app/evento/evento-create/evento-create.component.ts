@@ -37,7 +37,15 @@ export class EventoCreateComponent implements OnInit {
       telefone: new FormControl('', [Validators.required, Validators.maxLength(11)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       conteudo: new FormControl('', [Validators.required])
-    })
+    });
+  }
+
+  onActivate(event){
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });    
   }
 
   create() {

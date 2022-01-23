@@ -26,7 +26,7 @@
       </nav>
     </div>
     <div class="col-md-10 content">
-      <router-outlet></router-outlet>
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
     </div>
   </div>
 </div>
