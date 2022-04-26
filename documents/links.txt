@@ -73,3 +73,10 @@ wsl --set-default-version 2
 JAVASCRIPT E PDF
 https://cursos.alura.com.br/forum/topico-como-extrair-texto-de-um-determinado-pdf-usando-javascript-para-um-sistema-de-busca-31880
 https://www.npmjs.com/package/pdfreader
+
+
+Resolução do Scroll
+https://stackoverflow.com/questions/48048299/angular-5-scroll-to-top-on-every-route-click/48048822
+
+Dockerfile Postgres
+https://dev.to/andre347/how-to-easily-create-a-postgres-database-in-docker-4moj

@@ -1,0 +1,4 @@
+FROM postgres:alpine
+ENV POSTGRES_PASSWORD 12345678
+ENV POSTGRES_DB fullstackdb
+ENV POSTGRES_USER jcsantos
